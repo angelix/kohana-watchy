@@ -1,0 +1,30 @@
+# An Email Log Writer for Kohana.
+
+Angelos Veglektsis <angelix@vegle.gr> , <angelos.veglektsis@ogilvy.com>
+
+Installation:
+	- Copy the watchy folder to MODPATH (modules directory).
+	- Attach the writer to the log class AFTER Kohana::modules init , with the optionally limit of the levels of messages that will be written.
+	
+Example bootstrap.php
+
+
+
+//This is the default log writer
+Kohana::$config->attach(new Config_File); 
+
+Kohana::modules(array(
+	'auth'       => MODPATH.'auth',       // Basic authentication
+	'cache'      => MODPATH.'cache',      // Caching with multiple backends
+	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
+	'database'   => MODPATH.'database',   // Database access
+	// 'image'      => MODPATH.'image',      // Image manipulation
+	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+	// 'unittest'   => MODPATH.'unittest',   // Unit testing
+	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	'watchy'        => MODPATH.'watchy',        // Watchy Log Writer
+	));
+
+//Attach watchy writer after the modules path inclues. Only write ERROR's and above.
+Kohana::$log->attach(new Log_Watchy('Rich Project' , 'angelix@vegle.gr' , 'Kohana Watchy <rich@vegle.gr>') , Log::ERROR);
+
