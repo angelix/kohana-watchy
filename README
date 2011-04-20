@@ -3,7 +3,7 @@
 Angelos Veglektsis <angelix@vegle.gr> , <angelos.veglektsis@ogilvy.com>
 
 Installation:
-	- Copy the watchy folder to MODPATH (modules directory).
+	- Copy the watchy folder to MODPATH (modules directory). example (/modules/watchy/classes/watchy.php)
 	- Attach the writer to the log class AFTER Kohana::modules init , with the optionally limit of the levels of messages that will be written.
 	
 Example bootstrap.php
